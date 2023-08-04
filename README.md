@@ -1,5 +1,10 @@
 # API WatchBot
 
+[![Lint](https://github.com/josehenriqueroveda/watchbot/actions/workflows/black.yml/badge.svg)](https://github.com/josehenriqueroveda/watchbot/actions/workflows/black.yml)
+
+[![Bandit](https://github.com/josehenriqueroveda/watchbot/actions/workflows/bandit.yml/badge.svg)](https://github.com/josehenriqueroveda/watchbot/actions/workflows/bandit.yml)
+
+
 API WatchBot is a Python-based Telegram bot that monitors the status of multiple APIs and sends notifications to a Telegram group if any of them go down.
 It allows the user to check the status of the APIs by sending a command to the bot too.
 

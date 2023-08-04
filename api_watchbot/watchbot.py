@@ -22,11 +22,14 @@ last_warnings: Dict[str, int] = {}
 
 def check_api_status(api: Dict[str, str]) -> Tuple[int, str]:
     try:
-        response = requests.get(api["url"])
+        response = requests.get(api["url"], timeout=10)
+        print(response.status_code, response.text, response.content)
         if response.status_code == requests.codes.ok:
             return (response.status_code, "OK")
         else:
             return (response.status_code, response.text)
+    except requests.exceptions.Timeout:
+        return (requests.codes.request_timeout, "Request timed out!")
     except requests.exceptions.RequestException as e:
         return (requests.codes.internal_server_error, str(e))
 
