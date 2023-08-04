@@ -1,7 +1,6 @@
 # API WatchBot
 
 [![Lint](https://github.com/josehenriqueroveda/watchbot/actions/workflows/black.yml/badge.svg)](https://github.com/josehenriqueroveda/watchbot/actions/workflows/black.yml)
-
 [![Bandit](https://github.com/josehenriqueroveda/watchbot/actions/workflows/bandit.yml/badge.svg)](https://github.com/josehenriqueroveda/watchbot/actions/workflows/bandit.yml)
 
 
