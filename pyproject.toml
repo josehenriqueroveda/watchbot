@@ -11,6 +11,7 @@ python = "^3.11"
 requests = "^2.31.0"
 python-dotenv = "^1.0.0"
 pytelegrambotapi = "^4.12.0"
+apscheduler = "^3.10.1"
 
 
 [build-system]
