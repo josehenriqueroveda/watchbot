@@ -1,10 +1,17 @@
 import os
 import requests
+import logging
 from typing import Dict, Tuple
 
 import telebot
 from apscheduler.schedulers.background import BackgroundScheduler
 from dotenv import load_dotenv, find_dotenv
+
+logging.basicConfig(
+    format="%(levelname)s (%(asctime)s): %(message)s (Line: %(lineno)d) [%(filename)s])",
+    datefmt="%d-%m-%Y %H:%M:%S",
+    level=logging.DEBUG,
+)
 
 load_dotenv(find_dotenv())
 
@@ -23,14 +30,19 @@ last_warnings: Dict[str, int] = {}
 def check_api_status(api: Dict[str, str]) -> Tuple[int, str]:
     try:
         response = requests.get(api["url"], timeout=10)
-        print(response.status_code, response.text, response.content)
         if response.status_code == requests.codes.ok:
+            logging.info(f"{api['name']} is up and running!")
             return (response.status_code, "OK")
         else:
+            logging.error(
+                f"{api['name']} returned status code {response.status_code}: {response.text}"
+            )
             return (response.status_code, response.text)
     except requests.exceptions.Timeout:
+        logging.error(f"{api['name']} timed out!")
         return (requests.codes.request_timeout, "Request timed out!")
     except requests.exceptions.RequestException as e:
+        logging.error(f"{api['name']} returned an error: {e}")
         return (requests.codes.internal_server_error, str(e))
 
 
