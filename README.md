@@ -22,6 +22,10 @@ It allows the user to check the status of the APIs by sending a command to the b
 The bot can be used to check the status of APIs by sending the `/status` command to the bot. The bot will respond with the status of each API, indicating whether it is up or down.
 It also runs in the background and monitors the APIs. If any of them go down, it will send a notification to the Telegram group.
 
+## Example
+
+<img src="https://raw.githubusercontent.com/josehenriqueroveda/watchbot/main/examples/watchbot-telegram.png" width=480 class="inline"/>
+
 ## Contributing
 
 Contributions to the project are welcome. To contribute, please fork the repository and submit a pull request.
